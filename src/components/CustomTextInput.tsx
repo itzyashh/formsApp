@@ -24,13 +24,13 @@ export default CustomTextInput
 
 const styles = StyleSheet.create({
     label: {
-        color: '#2e184f',
+        color: '#34057b',
         fontSize: 15,
         marginBottom: 7,
     },
     input: {
         borderBottomColor: '#ac84e6',
-        borderBottomWidth: 1,
+        borderBottomWidth: 0.5,
         color: '#2e184f',
         maxHeight: 40,
     },

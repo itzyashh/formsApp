@@ -1,41 +1,61 @@
-import { StyleSheet, Text, TextInput, View } from 'react-native'
+import { KeyboardAvoidingView, Platform, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native'
 import React from 'react'
 import { Link } from 'expo-router'
 import CustomButton from '@/src/components/CustomButton'
-import { useSafeAreaInsets } from 'react-native-safe-area-context'
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import CustomTextInput from '@/src/components/CustomTextInput'
+import KeyboardAvoidingScrollView from '@/src/components/KeyboardAvoidingScrollView'
 
 const PersonalDetails = () => {
 
   const [fullName, setFullName] = React.useState('')
   console.log(fullName)
   return (
-    <View style={styles.container}>
-        <Text>Personal Details</Text>
-        <View style={{height: 20}} />
+    <KeyboardAvoidingScrollView>
+      <CustomTextInput
+        label='Full Name'
+        placeholder='John Doe'
+        placeholderTextColor={'#ab84e69e'}
+        value={fullName}
+        onChangeText={setFullName}
+      />
+      <CustomTextInput
+        label='Address'
+        placeholder='123 Main St'
+        placeholderTextColor={'#ab84e69e'}
+      />
+      <View style={{ flexDirection: 'row', gap: 10 }}>
         <CustomTextInput
-          label='Full Name'
-          placeholder='John Doe'
+          label='City'
+          placeholder='Manhattan'
+          containerStyle={{ flex: 1 }}
           placeholderTextColor={'#ab84e69e'}
-          value={fullName}
-          onChangeText={setFullName}
         />
         <CustomTextInput
-          label='Address'
-          placeholder='123 Main St'
+          label='Post code'
+          placeholder='10001'
+          containerStyle={{ flex: 1 }}
+          inputMode='numeric'
           placeholderTextColor={'#ab84e69e'}
         />
+      </View>
+      <CustomTextInput
+        label='Phone number'
+        placeholder='123-456-7890'
+        inputMode='tel'
+        placeholderTextColor={'#ab84e69e'}
+      />
 
 
 
 
 
-        <View style={styles.btnContainer}>
-      <Link href="/checkout/payment" asChild>
+      <View style={styles.btnContainer}>
+        <Link href="/checkout/payment" asChild>
           <CustomButton title="Next" />
-      </Link>
-        </View>
-    </View>
+        </Link>
+      </View>
+    </KeyboardAvoidingScrollView>
   )
 }
 
@@ -43,9 +63,9 @@ export default PersonalDetails
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    padding: 20,
+    flexGrow: 1,
+    gap: 20,
+    padding: 10,
   },
   btnContainer: {
     marginTop: 'auto',
