@@ -1,5 +1,6 @@
 import { StyleSheet, Text, TextInput, View } from 'react-native'
 import React, { FC } from 'react'
+import { colors } from '../constants'
 
 type CustomTextInputProps = {
     label?: string
@@ -13,6 +14,7 @@ const CustomTextInput: FC<CustomTextInputProps> = ({ label, containerStyle, ...t
         {label && <Text style={styles.label}>{label}</Text>}
             <TextInput
                 {...textInputProps}
+                placeholderTextColor={colors.placeholder}
                 style={[styles.input, error && styles.errorInput, textInputProps.style]}
             />
         <Text numberOfLines={1} style={styles.error}>{error?.message}</Text>
@@ -24,21 +26,21 @@ export default CustomTextInput
 
 const styles = StyleSheet.create({
     label: {
-        color: '#34057b',
+        color: colors.label,
         fontSize: 15,
         marginBottom: 7,
     },
     input: {
-        borderBottomColor: '#ac84e6',
+        borderBottomColor: colors.secondary,
         borderBottomWidth: 0.5,
-        color: '#2e184f',
+        color: colors.white,
         maxHeight: 40,
     },
     errorInput: {
-        borderBottomColor: 'crimson',
+        borderBottomColor: colors.error,
     },
     error: {
-        color: 'crimson',
+        color: colors.error,
         fontSize: 13,
         marginTop: 5,
         marginBottom: 10,

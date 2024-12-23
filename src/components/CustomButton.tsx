@@ -1,5 +1,6 @@
 import { Pressable, PressableProps, StyleSheet, Text, View } from 'react-native';
 import React, { forwardRef } from 'react';
+import { colors } from '../constants';
 
 type CustomButtonProps = {
     title: string;
@@ -19,7 +20,7 @@ const styles = StyleSheet.create({
     container: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#9393ff',
+        backgroundColor: colors.button,
         paddingVertical: 12,
         paddingHorizontal: 24,
         borderRadius: 45,

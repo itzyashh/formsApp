@@ -5,6 +5,7 @@ import CustomButton from '@/src/components/CustomButton'
 import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context'
 import CustomTextInput from '@/src/components/CustomTextInput'
 import KeyboardAvoidingScrollView from '@/src/components/KeyboardAvoidingScrollView'
+import { colors } from '@/src/constants'
 
 const PersonalDetails = () => {
 
@@ -15,35 +16,30 @@ const PersonalDetails = () => {
       <CustomTextInput
         label='Full Name'
         placeholder='John Doe'
-        placeholderTextColor={'#ab84e69e'}
         value={fullName}
         onChangeText={setFullName}
       />
       <CustomTextInput
         label='Address'
         placeholder='123 Main St'
-        placeholderTextColor={'#ab84e69e'}
       />
       <View style={{ flexDirection: 'row', gap: 10 }}>
         <CustomTextInput
           label='City'
           placeholder='Manhattan'
           containerStyle={{ flex: 1 }}
-          placeholderTextColor={'#ab84e69e'}
         />
         <CustomTextInput
           label='Post code'
           placeholder='10001'
           containerStyle={{ flex: 1 }}
           inputMode='numeric'
-          placeholderTextColor={'#ab84e69e'}
         />
       </View>
       <CustomTextInput
         label='Phone number'
         placeholder='123-456-7890'
         inputMode='tel'
-        placeholderTextColor={'#ab84e69e'}
       />
 
 
@@ -62,11 +58,6 @@ const PersonalDetails = () => {
 export default PersonalDetails
 
 const styles = StyleSheet.create({
-  container: {
-    flexGrow: 1,
-    gap: 20,
-    padding: 10,
-  },
   btnContainer: {
     marginTop: 'auto',
   },
