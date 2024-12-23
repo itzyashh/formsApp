@@ -12,7 +12,7 @@ const KeyboardAvoidingScrollView: FC<KeyboardAvoidingScrollViewProps> = ({ child
     return (
         <KeyboardAvoidingView
             behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-            style={{ flex: 1 }}
+            style={{ flex: 1, backgroundColor: colors.background }}
             keyboardVerticalOffset={110}
         >
             <ScrollView contentContainerStyle={styles.container}>
