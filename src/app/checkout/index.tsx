@@ -4,7 +4,7 @@ import { Redirect } from 'expo-router'
 
 const Page = () => {
     // console.log('Redirecting to /checkout/personal')
-  return <Redirect href="/checkout/personal" />
+  return <Redirect href="/checkout/confirm" />
 }
 
 export default Page

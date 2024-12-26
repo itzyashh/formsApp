@@ -13,7 +13,7 @@ const CustomTextInput: FC<CustomTextInputProps> = ({ label, name ,containerStyle
     const { 
         field: {value, onChange, onBlur},
         fieldState: {error},
-     } = useController({name: name, rules: {required: 'This field is required'}})
+     } = useController({name: name})
     return (
         <View style={containerStyle}>
         {label && <Text style={styles.label}>{label}</Text>}
