@@ -6,16 +6,17 @@ import KeyboardAvoidingScrollView from '@/src/components/KeyboardAvoidingScrollV
 import { Feather } from '@expo/vector-icons'
 import { colors } from '@/src/constants'
 import InfoCard from '@/src/components/InfoCard'
-
-
-
-const paymentInfo = { 
-  "cardNumber": "1234123412341234",
-  "expires": "01/30",
-  "cvv": "123"
-}
+import { useCheckoutForm } from '@/src/contexts/FormProvider'
 
 const ConfirmScreen = () => {
+
+  const {paymentInfo, personalInfo} = useCheckoutForm()
+
+  if (!paymentInfo || !personalInfo) return null
+
+  const transformData = {
+    ...Object.fromEntries(Object.entries(paymentInfo).map(([key, value]) => [key, value.toString()])),
+  }
 
   const onSubmit = () => {
     console.log('Order confirmed');
@@ -27,7 +28,8 @@ const ConfirmScreen = () => {
 
   return (
     <KeyboardAvoidingScrollView>
-      <InfoCard />
+      <InfoCard data={personalInfo} title="Personal Info" />
+      <InfoCard data={transformData} title="Payment Info" />
     </KeyboardAvoidingScrollView>
   )
 }

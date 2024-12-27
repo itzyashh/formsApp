@@ -7,23 +7,25 @@ import KeyboardAvoidingScrollView from '@/src/components/KeyboardAvoidingScrollV
 import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
+import { PersonalInfo, personalInfoSchema, useCheckoutForm } from '@/src/contexts/FormProvider'
 
-const personalInfoSchema = z.object({
-  name: z.string({ message: 'Name is required' }).min(2).trim(),
-  address: z.string({ message: 'Address is required' }).nonempty(),
-  city: z.string({ message: 'City is required' }).nonempty(),
-  postCode: z.string({ message: 'Post code is required' }).nonempty(),
-  phoneNumber: z.string({ message: 'Phone number is required' }).nonempty(),
-})
-
-type PersonalInfo = z.infer<typeof personalInfoSchema>
+const dummyData = {
+  name: 'John Doe',
+  address: '123 Main St',
+  city: 'Manhattan',
+  postCode: '10001',
+  phoneNumber: '123-456-7890',
+}
 
 const PersonalDetails = () => {
 
-
-  const form = useForm<PersonalInfo>({resolver: zodResolver(personalInfoSchema)})
+  const {setPersonalInfo} = useCheckoutForm()
+  const form = useForm<PersonalInfo>({
+    resolver: zodResolver(personalInfoSchema),
+    defaultValues: dummyData,
+  })
   const onSubmit: SubmitHandler<PersonalInfo> = (data) => {
-    console.log('submit', data)
+    setPersonalInfo(data)
 
     router.push('./payment')
   }

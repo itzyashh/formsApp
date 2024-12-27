@@ -1,37 +1,22 @@
 import { StyleSheet, Text, View } from 'react-native'
-import React from 'react'
+import React, { FC } from 'react'
 import { colors } from '../constants'
 import { Feather } from '@expo/vector-icons'
 
-type PersonalInfoProps = {
-    fullName: string
-    address: string
-    city: string
-    postcode: string
-    phone: string
-    country: string
-    }
+type InfoCardProps = {
+  data: Record<string, string> 
+  title?: string
+}
 
-    const personalInfo = {
-        "fullName": "Vadim Savin",
-        "address": "Poblenou",
-        "city": "Barcelona",
-        "postcode": "1234",
-        "phone": "60123123123",
-        "country": "ES"
-      }
-
-
-
-const InfoCard = () => {
+const InfoCard:FC<InfoCardProps> = ({data, title}) => {
   return (
     <View>
             <View style={styles.infoContainer}>
         <View style={{flexDirection: 'row', justifyContent: 'space-between', marginBottom: 10}}>
-        <Text style={styles.title}>Personal Information</Text>
+        <Text style={styles.title}>{title}</Text>
         <Feather name="edit-3" size={24} color={colors.secondary} />
         </View>
-      {Object.entries(personalInfo).map(([key, value]) => (
+      {Object.entries(data).map(([key, value]) => (
         <View key={key} >
           <Text style={{color:colors.label}}>{key}: {value}</Text>
         </View>
