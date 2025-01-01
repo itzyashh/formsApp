@@ -20,7 +20,8 @@ const StepIndicator: FC<StepIndicatorProps> = ({ headerProps }) => {
     return (
         <SafeAreaView edges={['top']} style={styles.container}>
             {steps.map(({ key, title }) => (
-                <View key={key} style={[styles.step, {borderBottomColor: key === currentStep ? colors.primary : colors.placeholder}]}>
+                <View
+                 key={key} style={[styles.step, {borderBottomColor: key === currentStep ? colors.primary : colors.placeholder}]}>
                     <Text style={key === currentStep ? styles.active : styles.inactive}>{title}</Text>
                 </View>
             ))}
@@ -35,7 +36,6 @@ const styles = StyleSheet.create({
         backgroundColor: colors.background,
         flexDirection: 'row',
         justifyContent: 'space-around',
-        height: 110,
         padding: 10,
         gap: 10,
     },
@@ -52,10 +52,12 @@ const styles = StyleSheet.create({
         color: colors.primary,
         fontWeight: '700',
         fontSize: 17,
+        paddingBottom: 5,
     },
     inactive: {
         color: colors.placeholder,
         fontWeight: '600',
         fontSize: 17,
+        paddingBottom: 5,
     },
 })

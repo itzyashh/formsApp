@@ -8,6 +8,9 @@ import { useForm, SubmitHandler, FormProvider } from "react-hook-form"
 import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { PersonalInfo, personalInfoSchema, useCheckoutForm } from '@/src/contexts/FormProvider'
+import RNPickerSelect from 'react-native-picker-select';
+import countries from '../../../assets/countries.json'
+import CustomPicker from '@/src/components/CustomPicker'
 
 const dummyData = {
   name: 'John Doe',
@@ -15,6 +18,7 @@ const dummyData = {
   city: 'Manhattan',
   postCode: '10001',
   phoneNumber: '123-456-7890',
+  country: 'US',
 }
 
 const PersonalDetails = () => {
@@ -59,6 +63,16 @@ const PersonalDetails = () => {
           name='postCode'
         />
       </View>
+
+      <CustomPicker
+        label='Country'
+        name='country'
+        darkTheme
+        items={countries.map((country) => ({ label: country.name, value: country.code }))}
+        onValueChange={(value) => console.log(value)}
+        placeholder={{ label: 'Select a country', value: null }}
+       />
+ 
       <CustomTextInput
         label='Phone number'
         placeholder='123-456-7890'
