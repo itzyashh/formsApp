@@ -11,6 +11,7 @@ import { PersonalInfo, personalInfoSchema, useCheckoutForm } from '@/src/context
 import RNPickerSelect from 'react-native-picker-select';
 import countries from '../../../assets/countries.json'
 import CustomPicker from '@/src/components/CustomPicker'
+import CustomDateTimePicker from '@/src/components/CustomDateTimePicker'
 
 const dummyData = {
   name: 'John Doe',
@@ -79,6 +80,13 @@ const PersonalDetails = () => {
         inputMode='tel'
         name='phoneNumber'
       />
+
+      <CustomDateTimePicker
+        label='Date of birth'
+        name='dob'
+        placeholder='DD/MM/YYYY'
+      />
+
       </FormProvider>
 
 

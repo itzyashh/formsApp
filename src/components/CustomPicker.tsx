@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
             marginBottom: 7,
         },
         input: {
-            borderBottomColor: colors.secondary,
+            borderBottomColor: 'transparent',
             borderBottomWidth: 0.5,
             color: colors.white,
             maxHeight: 40,

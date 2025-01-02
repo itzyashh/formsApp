@@ -20,6 +20,7 @@ export const personalInfoSchema = z.object({
     postCode: z.string({ message: 'Post code is required' }).nonempty(),
     phoneNumber: z.string({ message: 'Phone number is required' }).nonempty(),
     country: z.string({ message: 'Country is required' }).nonempty(),
+    dob: z.string({ message: 'Date of birth is required' }).nonempty(),
 })
 export type PersonalInfo = z.infer<typeof personalInfoSchema>
 
