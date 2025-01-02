@@ -1,7 +1,7 @@
 # Overview
 
 <div style="display: flex; gap: 20px; justify-content: center; align-items: center; flex-wrap: wrap;">
-  <img src="https://github.com/user-attachments/assets/b56fd58e-aad5-4cf4-8abb-20decc3126c8" alt="Simulator Screenshot 3" style="height: 400px; border: 1px solid #ccc; border-radius: 8px;">
+  <img src="https://github.com/user-attachments/assets/285ec2db-e958-4da1-a363-e10e29c0ff96" alt="Simulator Screenshot 3" style="height: 400px; border: 1px solid #ccc; border-radius: 8px;">
   <img src="https://github.com/user-attachments/assets/63259739-2469-4a46-9525-583b632b629e" alt="Simulator Screenshot 2" style="height: 400px; border: 1px solid #ccc; border-radius: 8px;">
   <img src="https://github.com/user-attachments/assets/e2feace4-5362-43a7-9b06-3612e4835d49" alt="Simulator Screenshot 1" style="height: 400px; border: 1px solid #ccc; border-radius: 8px;">
 </div>
